@@ -3,4 +3,4 @@ In order to view the genome coverage in UCSC , bamToBigWig transforms the bam fi
 * The bamfile should be sorted.
 * Internally the script calls bamtools and bedGraphToBigWig，so the bamtools and bedGraphToBigWig should be dwonlad and on the PATH.
 * usage:</br>
-```bamToBigWig input.bam output.bw```
+```bamToBigWig input.bam genomeszie output.bw```
