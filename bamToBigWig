@@ -2,8 +2,8 @@
 main(){
 echo "bamToBigWig "$inputbam" "$genomesize" "$outputbw
 echo $(date '+%Y%m%d %H:%M:%S')
-echo "bamtools coverage"
-#bamtools coverage -in $inputbam -out $inputbam".cov"
+echo "samtools depth"
+samtools depth $inputbam > $inputbam".cov"
 echo "remove ramdom chrom and transform to bedGraph" 
 sed -n '/^chr[0-9]*\t/p' $inputbam".cov" | awk '{print $1,$2,$2+1,$3}' > $inputbam".bedGraph"
 echo "bedGraphToBigWig"
