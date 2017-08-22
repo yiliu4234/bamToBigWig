@@ -13,7 +13,7 @@ echo "finish in "$(date '+%Y%m%d %H:%M:%S')
 
 if [ $# != 3 ];then
     echo "usage : bamToBigWig input.bam genomesize output.bw"
-    echo "Tips: Please add bamtools and bedGraphToBigWig to environment varibable and bam file should be sorted"
+    echo "Tips: Please add samtools and bedGraphToBigWig to environment varibable and bam file should be sorted"
 else
     inputbam=$1
     genomesize=$2
