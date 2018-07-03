@@ -5,7 +5,7 @@ echo $(date '+%Y%m%d %H:%M:%S')
 echo "samtools depth"
 samtools depth $inputbam > $inputbam".cov"
 echo "remove ramdom chrom and transform to bedGraph" 
-sed -n '/^chr[0-9]*\t/p' $inputbam".cov" | awk '{print $1,$2-1,$2,$3}' > $inputbam".bedGraph"
+sed -n '/^chr[0-9]*\t/p' $inputbam".cov" | awk '{print $1,$2-1,$2,$3}' | LC_COLLATE=C sort -k1,1 -k2,2n > $inputbam".bedGraph"
 echo "bedGraphToBigWig"
 bedGraphToBigWig $inputbam".bedGraph" $genomesize $outputbw
 echo "finish in "$(date '+%Y%m%d %H:%M:%S')
